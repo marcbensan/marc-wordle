@@ -7,10 +7,14 @@ import Keyboard from "./keyboard";
 export default function Game() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [guesses, setGuesses] = useState(Array(6).fill(""));
+  const [guessResults, setGuessResults] = useState(
+    Array(6)
+      .fill(null)
+      .map(() => [])
+  );
   const [currentGuess, setCurrentGuess] = useState(0);
   const [message, setMessage] = useState("");
 
-  // Handle key presses for the game
   useEffect(() => {
     async function handleKeys(e) {
       if (isGameOver) return;
@@ -20,36 +24,52 @@ export default function Game() {
           setMessage("Word must be 5 letters");
           return;
         }
-        console.log(JSON.stringify({ guess: guesses[currentGuess] }));
 
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        const res = await fetch(apiUrl!, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ guess: guesses[currentGuess] }),
-        });
+        try {
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+          const res = await fetch(apiUrl!, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ guess: guesses[currentGuess] }),
+          });
 
-        if (!res.ok) {
-          console.error("Can not fetch");
-        }
+          if (!res.ok) {
+            console.error("Failed to fetch from API");
+            setMessage("Error checking the word. Try again.");
+            return;
+          }
 
-        const data = await res.json();
+          const data = await res.json();
 
-        console.log(data);
+          // Check if the word is valid
+          if (!data.is_valid_word) {
+            setMessage("Your guess is not a valid word.");
+            return;
+          }
 
-        // Check if the word is correct
-        if (data.score.every((result: number) => result === 2)) {
-          setIsGameOver(true);
-          setMessage("You win!");
-          return;
-        }
+          // Save the result if the word is valid
+          setGuessResults((prevResults) => {
+            const newResults = [...prevResults];
+            newResults[currentGuess] = data.score;
+            return newResults;
+          });
 
-        // Move to next guess if not the last guess
-        if (currentGuess < 5) {
-          setCurrentGuess(currentGuess + 1);
-        } else {
-          setIsGameOver(true);
-          setMessage(`Game over! The word was ${answer}`);
+          // Check if the word is correct
+          if (data.score.every((result: number) => result === 2)) {
+            setIsGameOver(true);
+            setMessage("You win!");
+            return;
+          }
+
+          if (currentGuess < 5) {
+            setCurrentGuess(currentGuess + 1);
+          } else {
+            setIsGameOver(true);
+            setMessage("Game over!");
+          }
+        } catch (err) {
+          console.error("Error submitting guess", err);
+          setMessage("Something went wrong. Please try again.");
         }
       } else if (e.key === "Backspace") {
         setGuesses((prevGuesses) => {
@@ -75,24 +95,18 @@ export default function Game() {
     return () => window.removeEventListener("keydown", handleKeys);
   }, [guesses, currentGuess, isGameOver]);
 
-  // Handle virtual keyboard clicks
-  //   const handleKeyClick = (key) => {
-  //     if (isGameOver) return;
-
-  //     // Simulate keypresses for the virtual keyboard
-  //     const event = {
-  //       key:
-  //         key === "←" ? "Backspace" : key === "↵" ? "Enter" : key.toLowerCase(),
-  //     };
-
-  //     handleKeys(event);
-  //   };
-
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="grid grid-rows-6 gap-1">
         {guesses.map((guess, index) => (
-          <Guess key={index} guess={guess} />
+          <Guess
+            key={index}
+            guess={guess}
+            isGuessed={
+              index < currentGuess || (isGameOver && index === currentGuess)
+            }
+            guessResult={guessResults[index]}
+          />
         ))}
       </div>
 
@@ -102,6 +116,11 @@ export default function Game() {
         <button
           onClick={() => {
             setGuesses(Array(6).fill(""));
+            setGuessResults(
+              Array(6)
+                .fill(null)
+                .map(() => [])
+            );
             setCurrentGuess(0);
             setIsGameOver(false);
             setMessage("");
