@@ -1,16 +1,18 @@
 import Navbar from "@/components/navbar";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Anton, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const anton = Anton({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const DMSans = DM_Sans({
   subsets: ["latin"],
+  weight: "600",
+  variable: "--font-dmsans",
 });
 
 export const metadata: Metadata = {
@@ -26,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-zinc-900 antialiased`}
+        className={`${anton.variable} ${DMSans.variable}  bg-blue-primary antialiased`}
       >
         <Navbar />
-        {children}
+        <div className="z-10">{children}</div>
       </body>
     </html>
   );

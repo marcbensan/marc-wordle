@@ -28,20 +28,20 @@ export default function Keyboard({ letterStates = {} }) {
     const normalizedKey = key.toLowerCase();
 
     if (normalizedKey === "enter" || normalizedKey === "backspace") {
-      return "bg-gray-600 hover:bg-gray-500";
+      return "bg-blue-secondary hover:bg-blue-secondary/50";
     }
 
     const state = letterStates[normalizedKey];
 
     if (state === 2) {
-      return "bg-green-500 hover:bg-green-600 text-white";
+      return "bg-green hover:bg-green/80 text-white";
     } else if (state === 1) {
-      return "bg-yellow-500 hover:bg-yellow-600 text-white";
+      return "bg-yellow hover:bg-yellow/80 text-white";
     } else if (state === 0) {
-      return "bg-gray-700 hover:bg-gray-600 text-white";
+      return "bg-blue-dark hover:bg-blue-dark/50 text-white";
     }
 
-    return "bg-gray-500 hover:bg-gray-400 text-white";
+    return "bg-blue-secondary hover:bg-blue-secondary/50 text-white";
   };
 
   const handleClick = (key) => {
@@ -50,7 +50,7 @@ export default function Keyboard({ letterStates = {} }) {
   };
 
   return (
-    <div className="w-full max-w-lg px-2 mt-4">
+    <div className="w-full max-w-lg px-2 z-10 mt-4 font-caption">
       {keyboard.map((row, rowIndex) => (
         <div key={rowIndex} className="flex justify-center gap-1 mb-2">
           {row.map((key) => {
@@ -63,7 +63,7 @@ export default function Keyboard({ letterStates = {} }) {
                 data-key={key.toLowerCase()}
                 className={`${keyWidth} h-12 rounded-md font-medium ${getKeyColor(
                   key
-                )} transition-all duration-150 flex items-center justify-center`}
+                )} transition-all duration-150 text-white flex items-center justify-center`}
                 onClick={() => handleClick(key)}
               >
                 {key === "Backspace"
