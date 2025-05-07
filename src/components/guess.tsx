@@ -13,7 +13,7 @@ export default function Guess({
   guessResult: number[];
 }) {
   return (
-    <div className="grid grid-cols-5 gap-2 mb-1 z-10 font-caption text-blue-light text-lg">
+    <div className="grid grid-cols-5 gap-2 mb-1 z-10 font-caption text-white text-lg">
       {BOXES_LENGTH.map((_, index) => {
         let boxColor = "bg-blue-secondary";
 
@@ -33,7 +33,7 @@ export default function Guess({
 
         return (
           <div
-            className={`size-12 border-2 flex items-center border-blue-dark rounded-xs justify-center uppercase font-extrabold ${boxColor} transition-colors`}
+            className={`size-12 border-2 flex items-center border-blue-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor} transition-colors`}
             key={index}
           >
             {guess[index] && (
