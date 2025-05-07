@@ -12,27 +12,27 @@ export default function Guess({
   guessResult: number[];
 }) {
   return (
-    <div className="grid grid-cols-5 gap-2 mb-2">
+    <div className="grid grid-cols-5 gap-2 mb-1 text-white">
       {BOXES_LENGTH.map((_, index) => {
-        let boxColor = "bg-gray-800";
+        let boxColor = "bg-black";
 
         if (guess[index]) {
           if (!isGuessed) {
-            boxColor = "bg-gray-800";
+            boxColor = "bg-black";
           } else if (guessResult && guessResult.length > 0) {
             if (guessResult[index] === 2) {
               boxColor = "bg-green-500";
             } else if (guessResult[index] === 1) {
               boxColor = "bg-yellow-500";
             } else {
-              boxColor = "bg-gray-700";
+              boxColor = "bg-black";
             }
           }
         }
 
         return (
           <div
-            className={`size-12 border flex items-center border-gray-600 justify-center uppercase font-bold ${boxColor} transition-colors`}
+            className={`size-12 border flex items-center border-gray-500 justify-center uppercase font-bold ${boxColor} transition-colors`}
             key={index}
           >
             {guess[index]}

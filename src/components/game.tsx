@@ -95,8 +95,29 @@ export default function Game() {
     return () => window.removeEventListener("keydown", handleKeys);
   }, [guesses, currentGuess, isGameOver]);
 
+  const getKeyboardLetterStates = () => {
+    const letterStates = {};
+
+    // Process all guessed words to determine letter states for keyboard
+    for (let i = 0; i < currentGuess; i++) {
+      const guess = guesses[i];
+      const result = guessResults[i];
+
+      if (guess && result && result.length === 5) {
+        for (let j = 0; j < 5; j++) {
+          const letter = guess[j];
+          const currentState = letterStates[letter] || 0;
+          // Keep the highest state (0: not found, 1: wrong position, 2: correct position)
+          letterStates[letter] = Math.max(currentState, result[j]);
+        }
+      }
+    }
+
+    return letterStates;
+  };
+
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-2">
       <div className="grid grid-rows-6 gap-1">
         {guesses.map((guess, index) => (
           <Guess
@@ -131,7 +152,7 @@ export default function Game() {
         </button>
       )}
 
-      <Keyboard />
+      <Keyboard letterStates={getKeyboardLetterStates()} />
     </div>
   );
 }
