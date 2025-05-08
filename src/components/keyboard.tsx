@@ -50,7 +50,10 @@ export default function Keyboard({ letterStates = {} }) {
   };
 
   return (
-    <div className="w-full max-w-lg px-2 z-10 mt-4 font-caption">
+    <div
+      data-testid="keyboard"
+      className="w-full max-w-lg px-2 z-10 mt-4 font-caption"
+    >
       {keyboard.map((row, rowIndex) => (
         <div key={rowIndex} className="flex justify-center gap-1 mb-2">
           {row.map((key) => {

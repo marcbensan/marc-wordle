@@ -47,7 +47,7 @@ export default function Guess({
 
         return (
           <motion.div
-            className={`size-12 border-2 flex items-center border-blue-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor} transition-colors`}
+            className={`size-12 border-2 flex items-center border-blue-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor}`}
             key={index}
             variants={flipVariants}
             initial="initial"
@@ -56,6 +56,8 @@ export default function Guess({
                 ? "flip"
                 : "initial"
             }
+            data-testid="motion-div"
+            data-box-status={isGuessed ? guessResult[index] : null}
           >
             {guess[index] && (
               <motion.div
