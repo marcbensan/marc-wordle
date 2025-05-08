@@ -1,7 +1,7 @@
 "use client";
 
 import { BOXES_LENGTH } from "@/constants/guess";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; // Changed to framer-motion for proper import
 
 export default function Guess({
   guess,
@@ -31,10 +31,31 @@ export default function Guess({
           }
         }
 
+        const flipVariants = {
+          initial: {
+            rotateX: 0,
+          },
+          flip: {
+            rotateX: [0, 90, 0],
+            transition: {
+              duration: 0.5,
+              delay: index * 0.2,
+              ease: "easeInOut",
+            },
+          },
+        };
+
         return (
-          <div
+          <motion.div
             className={`size-12 border-2 flex items-center border-blue-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor} transition-colors`}
             key={index}
+            variants={flipVariants}
+            initial="initial"
+            animate={
+              isGuessed && guessResult && guessResult.length > 0
+                ? "flip"
+                : "initial"
+            }
           >
             {guess[index] && (
               <motion.div
@@ -48,7 +69,7 @@ export default function Guess({
                 {guess[index]}
               </motion.div>
             )}
-          </div>
+          </motion.div>
         );
       })}
     </div>

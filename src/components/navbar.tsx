@@ -14,7 +14,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { CircleHelpIcon, SettingsIcon } from "lucide-react";
+import { CircleHelpIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -51,7 +51,7 @@ export default function Navbar() {
                   </ul>
 
                   <div className="mt-4">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-8 mb-4">
                       <div className="w-6 h-6 bg-green-500 flex items-center justify-center">
                         A
                       </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
                         correct spot.
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-8 mb-4">
                       <div className="w-6 h-6 bg-yellow-500 flex items-center justify-center">
                         B
                       </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
                         wrong spot.
                       </span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-8">
                       <div className="w-6 h-6 bg-blue-secondary flex items-center justify-center">
                         C
                       </div>
@@ -92,12 +92,6 @@ export default function Navbar() {
               </DialogContent>
             </Dialog>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <button className="cursor-pointer hover:opacity-80 transition-opacity">
-              <SettingsIcon className="size-8" />
-            </button>
-          </NavigationMenuItem>
-          <NavigationMenuItem></NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
