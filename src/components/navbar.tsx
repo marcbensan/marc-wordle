@@ -83,7 +83,7 @@ export default function Navbar() {
 
                 <DialogFooter>
                   <button
-                    className="px-4 py-2 bg-blue-primary text-white rounded hover:bg-blue-secondary transition-colors"
+                    className="px-4 py-2 bg-blue-primary text-white rounded cursor-pointer hover:bg-blue-secondary transition-colors"
                     onClick={() => setHelpOpen(false)}
                   >
                     Got it

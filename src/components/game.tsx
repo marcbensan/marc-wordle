@@ -96,7 +96,7 @@ export default function Game() {
   }, [guesses, currentGuess, isGameOver]);
 
   const getKeyboardLetterStates = () => {
-    const letterStates = {};
+    const letterStates: { [key: string]: number } = {};
 
     // Process all guessed words to determine letter states for keyboard
     for (let i = 0; i < currentGuess; i++) {

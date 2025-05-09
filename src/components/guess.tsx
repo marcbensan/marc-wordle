@@ -56,8 +56,8 @@ export default function Guess({
                 ? "flip"
                 : "initial"
             }
-            data-testid="motion-div"
             data-box-status={isGuessed ? guessResult[index] : null}
+            data-testid="motion-box"
           >
             {guess[index] && (
               <motion.div
@@ -67,6 +67,7 @@ export default function Guess({
                   duration: 0.2,
                   scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
                 }}
+                data-testid="motion-letter"
               >
                 {guess[index]}
               </motion.div>

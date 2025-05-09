@@ -9,6 +9,11 @@ vi.mock("framer-motion", () => ({
       className,
       "data-testid": testId,
       "data-box-status": status,
+    }: {
+      children: React.ReactNode;
+      className?: string;
+      "data-testid"?: string;
+      "data-box-status"?: string;
     }) => (
       <div data-testid={testId} data-box-status={status} className={className}>
         {children}
@@ -29,7 +34,7 @@ const defaultProps = {
 
 test("Renders 5 empty boxes when no guess is provided", () => {
   render(<Guess {...defaultProps} />);
-  const boxes = screen.getAllByTestId("motion-div");
+  const boxes = screen.getAllByTestId("motion-box");
   expect(boxes).toHaveLength(5);
 
   boxes.forEach((box) => {
@@ -51,12 +56,12 @@ test("Applies correct colors based on guessResult when guessed", async () => {
   const props = {
     guess: "hello",
     isGuessed: true,
-    guessResult: [2, 1, 0, 1, 2], 
+    guessResult: [2, 1, 0, 1, 2],
   };
 
   render(<Guess {...props} />);
 
-  const boxes = screen.getAllByTestId("motion-div");
+  const boxes = screen.getAllByTestId("motion-box");
 
   await waitFor(() => {
     expect(boxes[0].className).toContain("bg-green");
@@ -76,9 +81,8 @@ test("Does not apply result colors when not guessed yet", () => {
 
   render(<Guess {...props} />);
 
-  const boxes = screen.getAllByTestId("motion-div");
+  const boxes = screen.getAllByTestId("motion-box");
 
-  // All boxes should still have the default color
   boxes.forEach((box) => {
     expect(box.className).toContain("bg-blue-secondary");
   });
