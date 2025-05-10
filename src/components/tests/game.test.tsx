@@ -164,7 +164,7 @@ test("Shows game over message after 6 incorrect guesses", async () => {
     fireEvent.keyDown(document, { key: "o" });
     fireEvent.keyDown(document, { key: "Enter" });
 
-    await new Promise((resolve) => setTimeout(resolve, 20));
+    await new Promise((resolve) => setTimeout(resolve, 40));
   }
   expect(screen.getByText(/Game over!/i)).toBeDefined();
   expect(screen.getByText(/Play Again/i)).toBeDefined();

@@ -131,7 +131,11 @@ export default function Game() {
         ))}
       </div>
 
-      {message && <div className="text-center text-red-500 h-6">{message}</div>}
+      {message && (
+        <div className="text-center font-caption text-red-500 h-6">
+          {message}
+        </div>
+      )}
 
       {isGameOver && (
         <button

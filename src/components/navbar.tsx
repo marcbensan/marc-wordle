@@ -14,7 +14,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { CircleHelpIcon } from "lucide-react";
+import { CircleHelpIcon, HomeIcon, SquareKanbanIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -22,8 +22,13 @@ export default function Navbar() {
 
   return (
     <div className="w-full text-white">
-      <NavigationMenu className="py-4 bg-blue-dark px-2 border-b border-blue-secondary flex justify-end">
-        <NavigationMenuList className="flex space-x-4">
+      <NavigationMenu className="p-4 bg-blue-dark w-full border-b border-blue-secondary flex justify-end">
+        <NavigationMenuList className="flex w-full items-center space-x-2">
+          <NavigationMenuItem className="flex flex-row items-start space-x-1 items-center">
+            <button className="cursor-pointer hover:opacity-80 transition-opacity">
+              <HomeIcon className="size-8" />
+            </button>
+          </NavigationMenuItem>
           <NavigationMenuItem>
             <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
               <DialogTrigger asChild>

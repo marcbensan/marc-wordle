@@ -1,7 +1,7 @@
 "use client";
 
 import { BOXES_LENGTH } from "@/constants/guess";
-import { motion } from "framer-motion"; // Changed to framer-motion for proper import
+import { motion } from "framer-motion";
 
 export default function Guess({
   guess,

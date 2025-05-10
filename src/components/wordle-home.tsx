@@ -35,7 +35,7 @@ export function WordleHome() {
       <div className="w-full flex items-center font-subheading justify-center">
         <Button
           onClick={() => router.push("/game")}
-          className="text-4xl cursor-pointer text-blue-dark hover:bg-blue-light/80 flex space-between bg-blue-light h-18 w-48 rounded-full"
+          className="text-4xl cursor-pointer text-blue-dark hover:bg-blue-light/80 flex space-between bg-blue-light h-18 w-56 rounded-full"
         >
           PLAY
         </Button>
