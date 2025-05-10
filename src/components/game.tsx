@@ -117,7 +117,7 @@ export default function Game() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center h-[40rem] mb-24 gap-2">
       <div className="grid grid-rows-6 gap-1">
         {guesses.map((guess, index) => (
           <Guess

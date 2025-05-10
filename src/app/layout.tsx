@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import type { Metadata } from "next";
 import { Anton, DM_Sans } from "next/font/google";
 import "./globals.css";
@@ -30,8 +30,10 @@ export default function RootLayout({
       <body
         className={`${anton.variable} ${DMSans.variable}  bg-blue-primary antialiased`}
       >
-        <Navbar />
         <div className="z-10">{children}</div>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

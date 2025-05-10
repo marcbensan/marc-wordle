@@ -1,9 +1,9 @@
-import Game from "@/components/game";
+import { WordleHome } from "@/components/wordle-home";
 
 export default function Home() {
   return (
-    <div className="flex relative flex-col items-center h-screen w-screen py-8">
-      <Game />
+    <div className="bg-blue-dark">
+      <WordleHome />;
     </div>
   );
 }
