@@ -1,14 +1,15 @@
 "use client";
 
+import { BOXES_LENGTH, GUESS_LENGTH } from "@/constants/guess";
 import { useEffect, useState } from "react";
 import Guess from "./guess";
 import Keyboard from "./keyboard";
 
 export default function Game() {
   const [isGameOver, setIsGameOver] = useState(false);
-  const [guesses, setGuesses] = useState(Array(6).fill(""));
+  const [guesses, setGuesses] = useState(Array(GUESS_LENGTH).fill(""));
   const [guessResults, setGuessResults] = useState(
-    Array(6)
+    Array(GUESS_LENGTH)
       .fill(null)
       .map(() => [])
   );
@@ -20,8 +21,8 @@ export default function Game() {
       if (isGameOver) return;
 
       if (e.key === "Enter") {
-        if (guesses[currentGuess].length !== 5) {
-          setMessage("Word must be 5 letters");
+        if (guesses[currentGuess].length !== BOXES_LENGTH) {
+          setMessage(`Word must be ${BOXES_LENGTH} letters`);
           return;
         }
 
@@ -58,7 +59,7 @@ export default function Game() {
             return;
           }
 
-          if (currentGuess < 5) {
+          if (currentGuess < GUESS_LENGTH - 1) {
             setCurrentGuess(currentGuess + 1);
           } else {
             setIsGameOver(true);
@@ -76,7 +77,7 @@ export default function Game() {
         });
         setMessage("");
       } else if (/^[a-zA-Z]$/.test(e.key)) {
-        if (guesses[currentGuess].length < 5) {
+        if (guesses[currentGuess].length < BOXES_LENGTH) {
           setGuesses((prevGuesses) => {
             const newGuesses = [...prevGuesses];
             newGuesses[currentGuess] =
@@ -99,8 +100,8 @@ export default function Game() {
       const guess = guesses[i];
       const result = guessResults[i];
 
-      if (guess && result && result.length === 5) {
-        for (let j = 0; j < 5; j++) {
+      if (guess && result && result.length === BOXES_LENGTH) {
+        for (let j = 0; j < BOXES_LENGTH; j++) {
           const letter = guess[j];
           const currentState = letterStates[letter] || 0;
           letterStates[letter] = Math.max(currentState, result[j]);
@@ -112,8 +113,8 @@ export default function Game() {
   };
 
   return (
-    <div className="flex flex-col items-center h-[40rem] mb-24 gap-2">
-      <div className="grid grid-rows-6 gap-1">
+    <div className="flex flex-col items-center min-h-screen mb-24 gap-2">
+      <div className={`grid grid-rows-${GUESS_LENGTH} gap-1`}>
         {guesses.map((guess, index) => (
           <Guess
             key={index}
@@ -141,9 +142,9 @@ export default function Game() {
       {isGameOver && (
         <button
           onClick={() => {
-            setGuesses(Array(6).fill(""));
+            setGuesses(Array(GUESS_LENGTH).fill(""));
             setGuessResults(
-              Array(6)
+              Array(GUESS_LENGTH)
                 .fill(null)
                 .map(() => [])
             );
