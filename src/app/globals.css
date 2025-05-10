@@ -41,10 +41,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-blue-primary: #303841;
-  --color-blue-secondary: #3a4750;
-  --color-blue-dark: #222831;
-  --color-blue-light: #d6bd98;
+  --color-wordle-primary: #303841;
+  --color-wordle-secondary: #3a4750;
+  --color-wordle-dark: #222831;
+  --color-wordle-light: #d6bd98;
   --color-yellow: #b59f3b;
   --color-green: #538d4e;
   --font-subheading: var(--font-anton);

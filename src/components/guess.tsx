@@ -19,18 +19,18 @@ export default function Guess({
       {Array(BOXES_LENGTH)
         .fill(0)
         .map((_, index) => {
-          let boxColor = "bg-blue-secondary";
+          let boxColor = "bg-wordle-secondary";
 
           if (guess[index]) {
             if (!isGuessed) {
-              boxColor = "bg-blue-secondary";
+              boxColor = "bg-wordle-secondary";
             } else if (guessResult && guessResult.length > 0) {
               if (guessResult[index] === 2) {
                 boxColor = "bg-green";
               } else if (guessResult[index] === 1) {
                 boxColor = "bg-yellow";
               } else {
-                boxColor = "bg-blue-secondary";
+                boxColor = "bg-wordle-secondary";
               }
             }
           }
@@ -51,7 +51,7 @@ export default function Guess({
 
           return (
             <motion.div
-              className={`size-12 border-2 flex items-center border-blue-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor}`}
+              className={`size-12 border-2 flex items-center border-wordle-dark/70 rounded-sm justify-center uppercase font-extrabold ${boxColor}`}
               key={index}
               variants={flipVariants}
               initial="initial"

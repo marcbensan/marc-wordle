@@ -27,7 +27,7 @@ test("Applies default blue color to keys with no state", () => {
 
   "qwertyuiopasdfghjklzxcvbnm".split("").forEach((letter) => {
     const key = screen.getByText(letter.toUpperCase());
-    expect(key.className).toContain("bg-blue-secondary");
+    expect(key.className).toContain("bg-wordle-secondary");
   });
 });
 
@@ -48,6 +48,6 @@ test("Applies correct colors based on letter states", () => {
 
   expect(mKey.className).toContain("bg-green");
   expect(pKey.className).toContain("bg-yellow");
-  expect(aKey.className).toContain("bg-blue-dark");
+  expect(aKey.className).toContain("bg-wordle-dark");
   expect(cKey.className).toContain("bg-yellow");
 });

@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="bg-blue-dark border-blue-primary border-t-2 text-blue-light py-12 mt-auto">
+    <div className="bg-wordle-dark border-wordle-primary border-t-2 text-wordle-light py-12 mt-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
@@ -122,7 +122,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-blue-primary text-center">
+        <div className="mt-8 pt-6 border-t border-wordle-primary text-center">
           <p>© {currentYear} Created by Marc Bensan. All rights reserved.</p>
         </div>
       </div>

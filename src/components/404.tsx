@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             onClick={() => router.push("/")}
-            className="text-xl cursor-pointer text-blue-dark hover:bg-blue-light/80 flex justify-center items-center bg-blue-light h-14 px-8 rounded-full"
+            className="text-xl cursor-pointer text-wordle-dark hover:bg-wordle-light/80 flex justify-center items-center bg-wordle-light h-14 px-8 rounded-full"
           >
             Go Home
           </Button>

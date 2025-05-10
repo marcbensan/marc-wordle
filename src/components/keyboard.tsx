@@ -32,7 +32,7 @@ export default function Keyboard({
     const normalizedKey = key.toLowerCase();
 
     if (normalizedKey === "enter" || normalizedKey === "backspace") {
-      return "bg-blue-secondary hover:bg-blue-secondary/50";
+      return "bg-wordle-secondary hover:bg-wordle-secondary/50";
     }
 
     const state = letterStates[normalizedKey];
@@ -42,10 +42,10 @@ export default function Keyboard({
     } else if (state === 1) {
       return "bg-yellow hover:bg-yellow/80 text-white";
     } else if (state === 0) {
-      return "bg-blue-dark hover:bg-blue-dark/50 text-white";
+      return "bg-wordle-dark hover:bg-wordle-dark/50 text-white";
     }
 
-    return "bg-blue-secondary hover:bg-blue-secondary/50 text-white";
+    return "bg-wordle-secondary hover:bg-wordle-secondary/50 text-white";
   };
 
   const handleClick = (key: string) => {

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${anton.variable} ${DMSans.variable}  bg-blue-primary antialiased`}
+        className={`${anton.variable} ${DMSans.variable}  bg-wordle-primary antialiased`}
       >
         {children}
         <footer>

@@ -38,7 +38,7 @@ test("Renders 5 empty boxes when no guess is provided", () => {
   expect(boxes).toHaveLength(5);
 
   boxes.forEach((box) => {
-    expect(box.className).toContain("bg-blue-secondary");
+    expect(box.className).toContain("bg-wordle-secondary");
   });
 });
 
@@ -66,7 +66,7 @@ test("Applies correct colors based on guessResult when guessed", async () => {
   await waitFor(() => {
     expect(boxes[0].className).toContain("bg-green");
     expect(boxes[1].className).toContain("bg-yellow");
-    expect(boxes[2].className).toContain("bg-blue-secondary");
+    expect(boxes[2].className).toContain("bg-wordle-secondary");
     expect(boxes[3].className).toContain("bg-yellow");
     expect(boxes[4].className).toContain("bg-green");
   });
@@ -84,6 +84,6 @@ test("Does not apply result colors when not guessed yet", () => {
   const boxes = screen.getAllByTestId("motion-box");
 
   boxes.forEach((box) => {
-    expect(box.className).toContain("bg-blue-secondary");
+    expect(box.className).toContain("bg-wordle-secondary");
   });
 });

@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <div className="w-full text-white">
-      <NavigationMenu className="p-4 bg-blue-dark w-full border-b border-blue-secondary flex justify-end">
+      <NavigationMenu className="p-4 bg-wordle-dark w-full border-b border-wordle-secondary flex justify-end">
         <NavigationMenuList className="flex w-full items-center space-x-2">
           <NavigationMenuItem className="flex flex-row space-x-1 items-center">
             <button
@@ -45,7 +45,7 @@ export default function Navbar() {
                   <CircleHelpIcon className="size-8" />
                 </button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] bg-blue-dark font-caption text-white p-8 border-none">
+              <DialogContent className="sm:max-w-[425px] bg-wordle-dark font-caption text-white p-8 border-none">
                 <DialogHeader>
                   <DialogTitle>How to Play</DialogTitle>
                   <DialogDescription>
@@ -84,7 +84,7 @@ export default function Navbar() {
                       </span>
                     </div>
                     <div className="flex items-center gap-8">
-                      <div className="w-6 h-6 bg-blue-secondary flex items-center justify-center">
+                      <div className="w-6 h-6 bg-wordle-secondary flex items-center justify-center">
                         C
                       </div>
                       <span>
@@ -97,7 +97,7 @@ export default function Navbar() {
 
                 <DialogFooter>
                   <button
-                    className="px-4 py-2 bg-blue-primary text-white rounded cursor-pointer hover:bg-blue-secondary transition-colors"
+                    className="px-4 py-2 bg-wordle-primary text-white rounded cursor-pointer hover:bg-wordle-secondary transition-colors"
                     onClick={() => setHelpOpen(false)}
                   >
                     Got it
