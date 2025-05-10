@@ -14,25 +14,34 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { CircleHelpIcon, HomeIcon, SquareKanbanIcon } from "lucide-react";
+import { CircleHelpIcon, HomeIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
+  const router = useRouter();
   const [helpOpen, setHelpOpen] = useState(false);
 
   return (
     <div className="w-full text-white">
       <NavigationMenu className="p-4 bg-blue-dark w-full border-b border-blue-secondary flex justify-end">
         <NavigationMenuList className="flex w-full items-center space-x-2">
-          <NavigationMenuItem className="flex flex-row items-start space-x-1 items-center">
-            <button className="cursor-pointer hover:opacity-80 transition-opacity">
+          <NavigationMenuItem className="flex flex-row space-x-1 items-center">
+            <button
+              onClick={() => router.push("/")}
+              className="cursor-pointer hover:opacity-80 transition-opacity"
+              data-testid="home-button"
+            >
               <HomeIcon className="size-8" />
             </button>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          <NavigationMenuItem className="flex items-center">
             <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
               <DialogTrigger asChild>
-                <button className="cursor-pointer hover:opacity-80 transition-opacity">
+                <button
+                  data-testid="help-button"
+                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                >
                   <CircleHelpIcon className="size-8" />
                 </button>
               </DialogTrigger>

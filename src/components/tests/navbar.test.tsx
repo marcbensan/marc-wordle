@@ -6,7 +6,15 @@ import {
   screen,
   waitFor,
 } from "@testing-library/react";
-import { beforeEach, expect, test } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
+
+const mockPush = vi.fn();
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: mockPush,
+  }),
+}));
 
 beforeEach(() => {
   cleanup();
@@ -14,31 +22,29 @@ beforeEach(() => {
 
 test("Renders the navbar with help icon", () => {
   render(<Navbar />);
+  const helpIcon = screen.getByTestId("help-button");
 
-  const helpIcon = screen.getByRole("button");
   expect(helpIcon).toBeDefined();
 });
 
 test("Help dialog is initially closed", () => {
   render(<Navbar />);
-
   const dialogTitle = screen.queryByText(/How to Play/i);
+
   expect(dialogTitle).toBeNull();
 });
 
 test("Opens help dialog when help icon is clicked", async () => {
   render(<Navbar />);
-
-  fireEvent.click(screen.getByRole("button"));
-
+  fireEvent.click(screen.getByTestId("help-button"));
   const dialogTitle = screen.getByText("How to Play");
+
   expect(dialogTitle).toBeDefined();
 });
 
 test("Displays all game rules in the dialog", async () => {
   render(<Navbar />);
-
-  fireEvent.click(screen.getByRole("button"));
+  fireEvent.click(screen.getByTestId("help-button"));
 
   expect(screen.getByText(/Guess the WORDLE in 6 tries/i)).toBeDefined();
   expect(
@@ -53,8 +59,7 @@ test("Displays all game rules in the dialog", async () => {
 
 test("Closes dialog when 'Got it' button is clicked", async () => {
   render(<Navbar />);
-
-  fireEvent.click(screen.getByRole("button"));
+  fireEvent.click(screen.getByTestId("help-button"));
 
   expect(screen.getByText("How to Play")).toBeDefined();
 
@@ -63,4 +68,11 @@ test("Closes dialog when 'Got it' button is clicked", async () => {
   await waitFor(() => {
     expect(screen.queryByText("How to Play")).toBeNull();
   });
+});
+
+test("Redirects to home when the home button is clicked", () => {
+  render(<Navbar />);
+  fireEvent.click(screen.getByTestId("home-button"));
+
+  expect(mockPush).toHaveBeenCalledWith("/");
 });
