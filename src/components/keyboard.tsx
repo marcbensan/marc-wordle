@@ -2,7 +2,11 @@
 
 import { useEffect } from "react";
 
-export default function Keyboard({ letterStates = {} }) {
+export default function Keyboard({
+  letterStates = {},
+}: {
+  letterStates: { [key: string]: number };
+}) {
   const keyboard = [
     ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
     ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
@@ -10,7 +14,7 @@ export default function Keyboard({ letterStates = {} }) {
   ];
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
       const keyElement = document.querySelector(`[data-key="${key}"]`);
 
@@ -24,7 +28,7 @@ export default function Keyboard({ letterStates = {} }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const getKeyColor = (key) => {
+  const getKeyColor = (key: string) => {
     const normalizedKey = key.toLowerCase();
 
     if (normalizedKey === "enter" || normalizedKey === "backspace") {
@@ -44,7 +48,7 @@ export default function Keyboard({ letterStates = {} }) {
     return "bg-blue-secondary hover:bg-blue-secondary/50 text-white";
   };
 
-  const handleClick = (key) => {
+  const handleClick = (key: string) => {
     const event = new KeyboardEvent("keydown", { key });
     window.dispatchEvent(event);
   };

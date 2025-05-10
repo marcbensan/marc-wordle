@@ -148,7 +148,9 @@ test("Shows win message when guessing the correct word", async () => {
   fireEvent.keyDown(document, { key: "Enter" });
 
   await waitFor(() => {
-    expect(screen.getByText(/You win!/i)).toBeDefined();
+    expect(
+      screen.getByText(/Congratulations, you guessed the word!/i)
+    ).toBeDefined();
     expect(screen.getByText(/Play Again/i)).toBeDefined();
   });
 });

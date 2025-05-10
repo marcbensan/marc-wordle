@@ -16,7 +16,7 @@ export default function Game() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    async function handleKeys(e) {
+    async function handleKeys(e: KeyboardEvent) {
       if (isGameOver) return;
 
       if (e.key === "Enter") {
@@ -41,23 +41,20 @@ export default function Game() {
 
           const data = await res.json();
 
-          // Check if the word is valid
           if (!data.is_valid_word) {
             setMessage("Your guess is not a valid word.");
             return;
           }
 
-          // Save the result if the word is valid
           setGuessResults((prevResults) => {
             const newResults = [...prevResults];
             newResults[currentGuess] = data.score;
             return newResults;
           });
 
-          // Check if the word is correct
           if (data.score.every((result: number) => result === 2)) {
             setIsGameOver(true);
-            setMessage("You win!");
+            setMessage("Congratulations, you guessed the word!");
             return;
           }
 
@@ -98,7 +95,6 @@ export default function Game() {
   const getKeyboardLetterStates = () => {
     const letterStates: { [key: string]: number } = {};
 
-    // Process all guessed words to determine letter states for keyboard
     for (let i = 0; i < currentGuess; i++) {
       const guess = guesses[i];
       const result = guessResults[i];
@@ -107,7 +103,6 @@ export default function Game() {
         for (let j = 0; j < 5; j++) {
           const letter = guess[j];
           const currentState = letterStates[letter] || 0;
-          // Keep the highest state (0: not found, 1: wrong position, 2: correct position)
           letterStates[letter] = Math.max(currentState, result[j]);
         }
       }
@@ -132,7 +127,13 @@ export default function Game() {
       </div>
 
       {message && (
-        <div className="text-center font-caption text-red-500 h-6">
+        <div
+          className={`text-center font-caption ${
+            message === "Congratulations, you guessed the word!"
+              ? "text-green"
+              : "text-red-500"
+          }  h-6`}
+        >
           {message}
         </div>
       )}
@@ -150,7 +151,7 @@ export default function Game() {
             setIsGameOver(false);
             setMessage("");
           }}
-          className="px-4 py-2 bg-green-500 text-white rounded-md"
+          className="px-4 py-2 cursor-pointer bg-green text-white rounded-md"
         >
           Play Again
         </button>
