@@ -27,7 +27,7 @@ export function WordleHome() {
           alt="hero"
           height={720}
           width={1400}
-          className="mx-auto rounded-2xl object-cover h-full "
+          className="mx-auto rounded-2xl object-center object-cover h-full "
           draggable={false}
         />
       </ContainerScroll>
