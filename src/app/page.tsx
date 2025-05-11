@@ -1,6 +1,6 @@
-import { WordleHome } from "@/components/wordle-home";
+import WordleHome from "@/components/wordle-home";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="bg-wordle-dark">
       <WordleHome />;

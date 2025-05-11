@@ -6,6 +6,10 @@ beforeEach(() => {
   cleanup();
 });
 
+test("Match Footer snapshot", () => {
+  expect(render(<Footer />)).toMatchSnapshot();
+});
+
 test("Renders the footer with correct name and title", () => {
   render(<Footer />);
 
@@ -36,9 +40,7 @@ test("Contains all social media links", () => {
 test("Shows the correct copyright year", () => {
   render(<Footer />);
 
-  expect(
-    screen.getByText("© 2025 Created by Marc Bensan. All rights reserved.")
-  ).toBeDefined();
+  expect(screen.getByText("© 2025 Created by Marc Bensan")).toBeDefined();
 });
 
 test("Renders section headings correctly", () => {

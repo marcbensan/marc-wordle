@@ -1,4 +1,4 @@
-import { WordleHome } from "@/components/wordle-home";
+import WordleHome from "@/components/wordle-home";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, expect, test, vi } from "vitest";
 
@@ -12,6 +12,10 @@ vi.mock("next/navigation", () => ({
 
 beforeEach(() => {
   cleanup();
+});
+
+test("Match WordleHome snapshot", () => {
+  expect(render(<WordleHome />)).toMatchSnapshot();
 });
 
 test("Renders the WordleHome component correctly", () => {

@@ -13,9 +13,7 @@ export default function Guess({
   guessResult: number[];
 }) {
   return (
-    <div
-      className={`grid grid-cols-5 gap-2 mb-1 font-caption text-white text-lg`}
-    >
+    <div className={`grid grid-cols-5 gap-2 mb-1 text-white text-lg`}>
       {Array(BOXES_LENGTH)
         .fill(0)
         .map((_, index) => {
@@ -30,7 +28,7 @@ export default function Guess({
               } else if (guessResult[index] === 1) {
                 boxColor = "bg-yellow";
               } else {
-                boxColor = "bg-wordle-secondary";
+                boxColor = "bg-wordle-dark";
               }
             }
           }

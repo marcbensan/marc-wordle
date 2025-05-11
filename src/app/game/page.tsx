@@ -1,7 +1,7 @@
 import Game from "@/components/game";
 import Navbar from "@/components/navbar";
 
-export default function Home() {
+export default function GamePage() {
   return (
     <>
       <Navbar />

@@ -20,7 +20,7 @@ import { useState } from "react";
 
 export default function Navbar() {
   const router = useRouter();
-  const [helpOpen, setHelpOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState<boolean>(false);
 
   return (
     <div className="w-full text-white">
@@ -36,7 +36,7 @@ export default function Navbar() {
             </button>
           </NavigationMenuItem>
           <NavigationMenuItem className="flex items-center">
-            <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
+            <Dialog open={isHelpOpen} onOpenChange={setIsHelpOpen}>
               <DialogTrigger asChild>
                 <button
                   data-testid="help-button"
@@ -45,7 +45,7 @@ export default function Navbar() {
                   <CircleHelpIcon className="size-8" />
                 </button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] bg-wordle-dark font-caption text-white p-8 border-none">
+              <DialogContent className="sm:max-w-[425px] bg-wordle-dark text-white p-8 border-none">
                 <DialogHeader>
                   <DialogTitle>How to Play</DialogTitle>
                   <DialogDescription>
@@ -66,7 +66,7 @@ export default function Navbar() {
 
                   <div className="mt-4">
                     <div className="flex items-center gap-8 mb-4">
-                      <div className="w-6 h-6 bg-green-500 flex items-center justify-center">
+                      <div className="w-6 h-6 bg-green flex items-center justify-center">
                         A
                       </div>
                       <span>
@@ -75,7 +75,7 @@ export default function Navbar() {
                       </span>
                     </div>
                     <div className="flex items-center gap-8 mb-4">
-                      <div className="w-6 h-6 bg-yellow-500 flex items-center justify-center">
+                      <div className="w-6 h-6 bg-yellow flex items-center justify-center">
                         B
                       </div>
                       <span>
@@ -88,7 +88,7 @@ export default function Navbar() {
                         C
                       </div>
                       <span>
-                        Blue indicates the letter is not in the word in any
+                        Gray indicates the letter is not in the word in any
                         spot.
                       </span>
                     </div>
@@ -98,7 +98,7 @@ export default function Navbar() {
                 <DialogFooter>
                   <button
                     className="px-4 py-2 bg-wordle-primary text-white rounded cursor-pointer hover:bg-wordle-secondary transition-colors"
-                    onClick={() => setHelpOpen(false)}
+                    onClick={() => setIsHelpOpen(false)}
                   >
                     Got it
                   </button>

@@ -1,4 +1,5 @@
 import Game from "@/components/game";
+import { GUESS_LENGTH } from "@/constants/guess";
 import {
   cleanup,
   fireEvent,
@@ -7,8 +8,6 @@ import {
   waitFor,
 } from "@testing-library/react";
 import { beforeEach, expect, test, vi } from "vitest";
-
-vi.stubEnv("NEXT_PUBLIC_API_URL", "http://test-api.com");
 
 global.fetch = vi.fn();
 
@@ -27,25 +26,27 @@ beforeEach(() => {
   cleanup();
 });
 
+test("Match Game snapshot", () => {
+  expect(render(<Game />)).toMatchSnapshot();
+});
+
 test("Renders initial game board", () => {
   render(<Game />);
-
   const guessRows = screen.getAllByTestId("motion-box");
-  expect(guessRows).toHaveLength(30);
 
+  expect(guessRows).toHaveLength(30);
   expect(screen.getByTestId("keyboard")).toBeDefined();
 });
 
 test("Updates guess when typing letters", () => {
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "h" });
   fireEvent.keyDown(document, { key: "e" });
   fireEvent.keyDown(document, { key: "l" });
   fireEvent.keyDown(document, { key: "l" });
   fireEvent.keyDown(document, { key: "o" });
-
   const guessLetters = screen.getAllByTestId(/motion-letter/i);
+
   expect(guessLetters[0].textContent).toBe("h");
   expect(guessLetters[1].textContent).toBe("e");
   expect(guessLetters[2].textContent).toBe("l");
@@ -55,7 +56,6 @@ test("Updates guess when typing letters", () => {
 
 test("Shows error message when submitting words less than 5 letters", () => {
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "w" });
   fireEvent.keyDown(document, { key: "o" });
   fireEvent.keyDown(document, { key: "r" });
@@ -72,7 +72,6 @@ test("Shows error message when word is not valid", async () => {
   });
 
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "a" });
   fireEvent.keyDown(document, { key: "a" });
   fireEvent.keyDown(document, { key: "a" });
@@ -87,7 +86,6 @@ test("Shows error message when word is not valid", async () => {
 
 test("Handles successful submission", async () => {
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "h" });
   fireEvent.keyDown(document, { key: "e" });
   fireEvent.keyDown(document, { key: "l" });
@@ -111,7 +109,6 @@ test("Handles successful submission", async () => {
 
 test("Handles backspace to delete letters", () => {
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "h" });
   fireEvent.keyDown(document, { key: "e" });
   fireEvent.keyDown(document, { key: "l" });
@@ -119,8 +116,8 @@ test("Handles backspace to delete letters", () => {
   fireEvent.keyDown(document, { key: "o" });
   fireEvent.keyDown(document, { key: "Backspace" });
   fireEvent.keyDown(document, { key: "Backspace" });
-
   const guessLetters = screen.getAllByTestId("motion-box");
+
   expect(guessLetters[0].textContent).toBe("h");
   expect(guessLetters[1].textContent).toBe("e");
   expect(guessLetters[2].textContent).toBe("l");
@@ -139,7 +136,6 @@ test("Shows win message when guessing the correct word", async () => {
   });
 
   render(<Game />);
-
   fireEvent.keyDown(document, { key: "h" });
   fireEvent.keyDown(document, { key: "e" });
   fireEvent.keyDown(document, { key: "l" });
@@ -158,7 +154,7 @@ test("Shows win message when guessing the correct word", async () => {
 test("Shows game over message after 6 incorrect guesses", async () => {
   render(<Game />);
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < GUESS_LENGTH; i++) {
     fireEvent.keyDown(document, { key: "h" });
     fireEvent.keyDown(document, { key: "e" });
     fireEvent.keyDown(document, { key: "l" });
@@ -196,12 +192,11 @@ test("Resets the game when play again button is clicked", async () => {
   });
 
   fireEvent.click(screen.getByText("Play Again"));
-
   fireEvent.keyDown(document, { key: "n" });
   fireEvent.keyDown(document, { key: "e" });
   fireEvent.keyDown(document, { key: "w" });
-
   const firstGuessLetters = screen.getAllByTestId(/motion-letter/i);
+
   expect(firstGuessLetters[0].innerHTML).toBe("n");
   expect(firstGuessLetters[1].innerHTML).toBe("e");
   expect(firstGuessLetters[2].innerHTML).toBe("w");
