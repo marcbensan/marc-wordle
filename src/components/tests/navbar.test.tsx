@@ -20,6 +20,10 @@ beforeEach(() => {
   cleanup();
 });
 
+test("Match Navbar snapshot", () => {
+  expect(render(<Navbar />)).toMatchSnapshot();
+});
+
 test("Renders the navbar with help icon", () => {
   render(<Navbar />);
   const helpIcon = screen.getByTestId("help-button");
@@ -36,6 +40,7 @@ test("Help dialog is initially closed", () => {
 
 test("Opens help dialog when help icon is clicked", async () => {
   render(<Navbar />);
+
   fireEvent.click(screen.getByTestId("help-button"));
   const dialogTitle = screen.getByText("How to Play");
 
@@ -44,6 +49,7 @@ test("Opens help dialog when help icon is clicked", async () => {
 
 test("Displays all game rules in the dialog", async () => {
   render(<Navbar />);
+
   fireEvent.click(screen.getByTestId("help-button"));
 
   expect(screen.getByText(/Guess the WORDLE in 6 tries/i)).toBeDefined();
@@ -59,6 +65,7 @@ test("Displays all game rules in the dialog", async () => {
 
 test("Closes dialog when 'Got it' button is clicked", async () => {
   render(<Navbar />);
+
   fireEvent.click(screen.getByTestId("help-button"));
 
   expect(screen.getByText("How to Play")).toBeDefined();

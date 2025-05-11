@@ -6,15 +6,17 @@ import Guess from "./guess";
 import Keyboard from "./keyboard";
 
 export default function Game() {
-  const [isGameOver, setIsGameOver] = useState(false);
-  const [guesses, setGuesses] = useState(Array(GUESS_LENGTH).fill(""));
-  const [guessResults, setGuessResults] = useState(
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
+  const [guesses, setGuesses] = useState<string[]>(
+    Array(GUESS_LENGTH).fill("")
+  );
+  const [guessResults, setGuessResults] = useState<number[][]>(
     Array(GUESS_LENGTH)
       .fill(null)
       .map(() => [])
   );
-  const [currentGuess, setCurrentGuess] = useState(0);
-  const [message, setMessage] = useState("");
+  const [currentGuess, setCurrentGuess] = useState<number>(0);
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     async function handleKeys(e: KeyboardEvent) {
@@ -93,7 +95,7 @@ export default function Game() {
     return () => window.removeEventListener("keydown", handleKeys);
   }, [guesses, currentGuess, isGameOver]);
 
-  const getKeyboardLetterStates = () => {
+  function getKeyboardLetterStates() {
     const letterStates: { [key: string]: number } = {};
 
     for (let i = 0; i < currentGuess; i++) {
@@ -110,7 +112,7 @@ export default function Game() {
     }
 
     return letterStates;
-  };
+  }
 
   return (
     <div className="flex flex-col items-center min-h-screen mb-24 gap-2">
@@ -129,7 +131,7 @@ export default function Game() {
 
       {message && (
         <div
-          className={`text-center font-caption ${
+          className={`text-center ${
             message === "Congratulations, you guessed the word!"
               ? "text-green"
               : "text-red-500"
@@ -152,7 +154,7 @@ export default function Game() {
             setIsGameOver(false);
             setMessage("");
           }}
-          className="px-4 py-2 cursor-pointer bg-green text-white rounded-md"
+          className="px-4 py-2 cursor-pointer bg-green text-white rounded-full"
         >
           Play Again
         </button>

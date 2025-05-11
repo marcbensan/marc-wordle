@@ -14,7 +14,7 @@ export default function Keyboard({
   ];
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    function handleKeyDown(e: KeyboardEvent) {
       const key = e.key.toLowerCase();
       const keyElement = document.querySelector(`[data-key="${key}"]`);
 
@@ -22,13 +22,13 @@ export default function Keyboard({
         keyElement.classList.add("scale-90");
         setTimeout(() => keyElement.classList.remove("scale-90"), 100);
       }
-    };
+    }
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const getKeyColor = (key: string) => {
+  function getKeyColor(key: string) {
     const normalizedKey = key.toLowerCase();
 
     if (normalizedKey === "enter" || normalizedKey === "backspace") {
@@ -46,15 +46,15 @@ export default function Keyboard({
     }
 
     return "bg-wordle-secondary hover:bg-wordle-secondary/50 text-white";
-  };
+  }
 
-  const handleClick = (key: string) => {
+  function handleClick(key: string) {
     const event = new KeyboardEvent("keydown", { key });
     window.dispatchEvent(event);
-  };
+  }
 
   return (
-    <div data-testid="keyboard" className="w-full px-2 mt-4 font-caption">
+    <div data-testid="keyboard" className="w-full px-2 mt-4">
       {keyboard.map((row, rowIndex) => (
         <div key={rowIndex} className="flex justify-center gap-1 mb-2">
           {row.map((key) => {
@@ -65,7 +65,7 @@ export default function Keyboard({
               <button
                 key={key}
                 data-key={key.toLowerCase()}
-                className={`${keyWidth} h-auto px-2 py-3 md:px-3 text-md rounded-md font-medium ${getKeyColor(
+                className={`${keyWidth} h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium ${getKeyColor(
                   key
                 )} transition-all duration-150 text-white flex items-center justify-center`}
                 onClick={() => handleClick(key)}

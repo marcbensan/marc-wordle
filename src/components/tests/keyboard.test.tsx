@@ -10,6 +10,10 @@ const defaultProps = {
   letterStates: {},
 };
 
+test("Match Keyboard snapshot", () => {
+  expect(render(<Keyboard {...defaultProps} />)).toMatchSnapshot();
+});
+
 test("Renders all keyboard keys", () => {
   render(<Keyboard {...defaultProps} />);
 
@@ -22,7 +26,7 @@ test("Renders all keyboard keys", () => {
   expect(screen.getByText("←")).toBeDefined();
 });
 
-test("Applies default blue color to keys with no state", () => {
+test("Applies default gray color to keys with no state", () => {
   render(<Keyboard {...defaultProps} />);
 
   "qwertyuiopasdfghjklzxcvbnm".split("").forEach((letter) => {
@@ -33,21 +37,21 @@ test("Applies default blue color to keys with no state", () => {
 
 test("Applies correct colors based on letter states", () => {
   const letterStates = {
-    m: 2,
-    p: 1,
-    a: 0,
-    c: 1,
+    a: 2,
+    b: 1,
+    c: 0,
+    d: 1,
   };
 
   render(<Keyboard letterStates={letterStates} />);
 
-  const mKey = screen.getByText("M");
-  const pKey = screen.getByText("P");
   const aKey = screen.getByText("A");
+  const bKey = screen.getByText("B");
   const cKey = screen.getByText("C");
+  const dKey = screen.getByText("D");
 
-  expect(mKey.className).toContain("bg-green");
-  expect(pKey.className).toContain("bg-yellow");
-  expect(aKey.className).toContain("bg-wordle-dark");
-  expect(cKey.className).toContain("bg-yellow");
+  expect(aKey.className).toContain("bg-green");
+  expect(bKey.className).toContain("bg-yellow");
+  expect(cKey.className).toContain("bg-wordle-dark");
+  expect(dKey.className).toContain("bg-yellow");
 });

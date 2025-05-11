@@ -1,0 +1,434 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Match Keyboard snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="w-full px-2 mt-4"
+        data-testid="keyboard"
+      >
+        <div
+          class="flex justify-center gap-1 mb-2"
+        >
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="q"
+          >
+            Q
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="w"
+          >
+            W
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="e"
+          >
+            E
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="r"
+          >
+            R
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="t"
+          >
+            T
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="y"
+          >
+            Y
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="u"
+          >
+            U
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="i"
+          >
+            I
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="o"
+          >
+            O
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="p"
+          >
+            P
+          </button>
+        </div>
+        <div
+          class="flex justify-center gap-1 mb-2"
+        >
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="a"
+          >
+            A
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="s"
+          >
+            S
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="d"
+          >
+            D
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="f"
+          >
+            F
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="g"
+          >
+            G
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="h"
+          >
+            H
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="j"
+          >
+            J
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="k"
+          >
+            K
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="l"
+          >
+            L
+          </button>
+        </div>
+        <div
+          class="flex justify-center gap-1 mb-2"
+        >
+          <button
+            class="w-16 h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 transition-all duration-150 text-white flex items-center justify-center"
+            data-key="enter"
+          >
+            ENTER
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="z"
+          >
+            Z
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="x"
+          >
+            X
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="c"
+          >
+            C
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="v"
+          >
+            V
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="b"
+          >
+            B
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="n"
+          >
+            N
+          </button>
+          <button
+            class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+            data-key="m"
+          >
+            M
+          </button>
+          <button
+            class="w-16 h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 transition-all duration-150 text-white flex items-center justify-center"
+            data-key="backspace"
+          >
+            ←
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="w-full px-2 mt-4"
+      data-testid="keyboard"
+    >
+      <div
+        class="flex justify-center gap-1 mb-2"
+      >
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="q"
+        >
+          Q
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="w"
+        >
+          W
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="e"
+        >
+          E
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="r"
+        >
+          R
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="t"
+        >
+          T
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="y"
+        >
+          Y
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="u"
+        >
+          U
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="i"
+        >
+          I
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="o"
+        >
+          O
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="p"
+        >
+          P
+        </button>
+      </div>
+      <div
+        class="flex justify-center gap-1 mb-2"
+      >
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="a"
+        >
+          A
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="s"
+        >
+          S
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="d"
+        >
+          D
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="f"
+        >
+          F
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="g"
+        >
+          G
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="h"
+        >
+          H
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="j"
+        >
+          J
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="k"
+        >
+          K
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="l"
+        >
+          L
+        </button>
+      </div>
+      <div
+        class="flex justify-center gap-1 mb-2"
+      >
+        <button
+          class="w-16 h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 transition-all duration-150 text-white flex items-center justify-center"
+          data-key="enter"
+        >
+          ENTER
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="z"
+        >
+          Z
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="x"
+        >
+          X
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="c"
+        >
+          C
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="v"
+        >
+          V
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="b"
+        >
+          B
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="n"
+        >
+          N
+        </button>
+        <button
+          class="w-auto h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 text-white transition-all duration-150 text-white flex items-center justify-center"
+          data-key="m"
+        >
+          M
+        </button>
+        <button
+          class="w-16 h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium bg-wordle-secondary hover:bg-wordle-secondary/50 transition-all duration-150 text-white flex items-center justify-center"
+          data-key="backspace"
+        >
+          ←
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
