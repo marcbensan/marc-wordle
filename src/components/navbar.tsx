@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <div className="w-full text-white">
       <NavigationMenu className="p-4 bg-wordle-dark w-full border-b border-wordle-secondary flex justify-end">
-        <NavigationMenuList className="flex w-full items-center space-x-2">
+        <NavigationMenuList className="flex w-full items-center space-x-4">
           <NavigationMenuItem className="flex flex-row space-x-1 items-center">
             <button
               onClick={() => router.push("/")}
