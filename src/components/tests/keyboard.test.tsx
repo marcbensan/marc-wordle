@@ -22,7 +22,7 @@ test("Renders all keyboard keys", () => {
     expect(key).toBeDefined();
   });
 
-  expect(screen.getByText("ENTER")).toBeDefined();
+  expect(screen.getByText("↩")).toBeDefined();
   expect(screen.getByText("←")).toBeDefined();
 });
 

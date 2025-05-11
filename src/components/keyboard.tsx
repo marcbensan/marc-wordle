@@ -59,13 +59,13 @@ export default function Keyboard({
         <div key={rowIndex} className="flex justify-center gap-1 mb-2">
           {row.map((key) => {
             const isSpecialKey = key === "Enter" || key === "Backspace";
-            const keyWidth = isSpecialKey ? "w-16" : "w-auto";
+            const keyWidth = isSpecialKey ? "w-12" : "w-8 md:w-10";
 
             return (
               <button
                 key={key}
                 data-key={key.toLowerCase()}
-                className={`${keyWidth} h-auto cursor-pointer px-2 py-3 md:px-3 text-md rounded-md font-medium ${getKeyColor(
+                className={`${keyWidth} h-auto cursor-pointer px-1 py-3 md:px-3 text-md rounded-md ${getKeyColor(
                   key
                 )} transition-all duration-150 text-white flex items-center justify-center`}
                 onClick={() => handleClick(key)}
@@ -73,7 +73,7 @@ export default function Keyboard({
                 {key === "Backspace"
                   ? "←"
                   : key === "Enter"
-                  ? "ENTER"
+                  ? "↩"
                   : key.toUpperCase()}
               </button>
             );
