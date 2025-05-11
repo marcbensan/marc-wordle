@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 
-export function WordleHome() {
+export default function WordleHome() {
   const router = useRouter();
 
   return (

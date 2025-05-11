@@ -6,9 +6,9 @@ export default function Footer() {
 
   return (
     <div className="bg-wordle-dark border-wordle-primary border-t-2 text-wordle-light py-12 mt-auto">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-12">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
+          <div className="mb-6 md:mb-0 text-center md:text-start">
             <h2 className="text-xl font-bold">Marc Bensan</h2>
             <p className="mt-2">Software Developer</p>
           </div>
@@ -18,12 +18,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <Phone size={16} />
-                  <Link
-                    href="tel:+1234567890"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    (647) 395-5441
-                  </Link>
+                  (647) 395-5441
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail size={16} />
@@ -36,7 +31,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-lg font-semibold mb-3">Social</h3>
               <ul className="space-y-2">
@@ -123,7 +117,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-wordle-primary text-center">
-          <p>© {currentYear} Created by Marc Bensan. All rights reserved.</p>
+          <p>© {currentYear} Created by Marc Bensan</p>
         </div>
       </div>
     </div>
