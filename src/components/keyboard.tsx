@@ -59,13 +59,13 @@ export default function Keyboard({
         <div key={rowIndex} className="flex justify-center gap-1 mb-2">
           {row.map((key) => {
             const isSpecialKey = key === "Enter" || key === "Backspace";
-            const keyWidth = isSpecialKey ? "w-16" : "w-10";
+            const keyWidth = isSpecialKey ? "w-16" : "w-auto";
 
             return (
               <button
                 key={key}
                 data-key={key.toLowerCase()}
-                className={`${keyWidth} h-12 rounded-md font-medium ${getKeyColor(
+                className={`${keyWidth} h-auto px-2 py-3 md:px-3 text-md rounded-md font-medium ${getKeyColor(
                   key
                 )} transition-all duration-150 text-white flex items-center justify-center`}
                 onClick={() => handleClick(key)}
