@@ -9,8 +9,6 @@ import {
 } from "@testing-library/react";
 import { beforeEach, expect, test, vi } from "vitest";
 
-global.fetch = vi.fn();
-
 beforeEach(() => {
   global.fetch = vi.fn().mockResolvedValue({
     ok: true,

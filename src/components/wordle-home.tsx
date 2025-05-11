@@ -12,14 +12,12 @@ export default function WordleHome() {
     <div className="flex flex-col overflow-hidden mb-48">
       <ContainerScroll
         titleComponent={
-          <>
-            <h1 className="text-4xl font-semibold text-white">
-              Enjoy a quick game of <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                WORDLE
-              </span>
-            </h1>
-          </>
+          <h1 className="text-4xl font-semibold text-white">
+            Enjoy a quick game of <br />
+            <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              WORDLE
+            </span>
+          </h1>
         }
       >
         <Image

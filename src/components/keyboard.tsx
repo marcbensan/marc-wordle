@@ -38,14 +38,14 @@ export default function Keyboard({
     const state = letterStates[normalizedKey];
 
     if (state === 2) {
-      return "bg-green hover:bg-green/80 text-white";
+      return "bg-green hover:bg-green/80";
     } else if (state === 1) {
-      return "bg-yellow hover:bg-yellow/80 text-white";
+      return "bg-yellow hover:bg-yellow/80";
     } else if (state === 0) {
-      return "bg-wordle-dark hover:bg-wordle-dark/50 text-white";
+      return "bg-wordle-dark hover:bg-wordle-dark/50";
     }
 
-    return "bg-wordle-secondary hover:bg-wordle-secondary/50 text-white";
+    return "bg-wordle-secondary hover:bg-wordle-secondary/50";
   }
 
   function handleClick(key: string) {
@@ -65,9 +65,9 @@ export default function Keyboard({
               <button
                 key={key}
                 data-key={key.toLowerCase()}
-                className={`${keyWidth} h-auto cursor-pointer px-1 py-3 md:px-3 text-md rounded-md ${getKeyColor(
+                className={`${keyWidth} h-auto text-white cursor-pointer px-1 py-3 md:px-3 text-md rounded-md ${getKeyColor(
                   key
-                )} transition-all duration-150 text-white flex items-center justify-center`}
+                )} transition-all duration-150 flex items-center justify-center`}
                 onClick={() => handleClick(key)}
               >
                 {key === "Backspace"
