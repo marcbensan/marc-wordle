@@ -40,7 +40,7 @@ exports[`Match WordleHome snapshot 1`] = `
               >
                 <img
                   alt="hero"
-                  class="mx-auto rounded-2xl object-cover h-full "
+                  class="mx-auto rounded-2xl object-center object-cover h-full "
                   data-nimg="1"
                   decoding="async"
                   draggable="false"
@@ -104,7 +104,7 @@ exports[`Match WordleHome snapshot 1`] = `
             >
               <img
                 alt="hero"
-                class="mx-auto rounded-2xl object-cover h-full "
+                class="mx-auto rounded-2xl object-center object-cover h-full "
                 data-nimg="1"
                 decoding="async"
                 draggable="false"
