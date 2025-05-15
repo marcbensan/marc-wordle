@@ -1,17 +1,27 @@
 "use client";
 
-import { BOXES_LENGTH, GUESS_LENGTH } from "@/constants/guess";
+import {
+  BOXES_LENGTH,
+  DEFAULT_GUESS_LENGTH,
+  HARD_MODE_LENGTH,
+} from "@/constants/guess";
 import { useEffect, useState } from "react";
 import Guess from "./guess";
 import Keyboard from "./keyboard";
+import { Label } from "./ui/label";
+import { Switch } from "./ui/switch";
 
 export default function Game() {
+  const [isHardMode, setIsHardMode] = useState<boolean>(false);
+  const [currentGuessLength, setCurrentGuessLength] = useState<number>(
+    isHardMode ? HARD_MODE_LENGTH : DEFAULT_GUESS_LENGTH
+  );
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
   const [guesses, setGuesses] = useState<string[]>(
-    Array(GUESS_LENGTH).fill("")
+    Array(DEFAULT_GUESS_LENGTH).fill("")
   );
   const [guessResults, setGuessResults] = useState<number[][]>(
-    Array(GUESS_LENGTH)
+    Array(DEFAULT_GUESS_LENGTH)
       .fill(null)
       .map(() => [])
   );
@@ -61,7 +71,7 @@ export default function Game() {
             return;
           }
 
-          if (currentGuess < GUESS_LENGTH - 1) {
+          if (currentGuess < currentGuessLength - 1) {
             setCurrentGuess(currentGuess + 1);
           } else {
             setIsGameOver(true);
@@ -95,6 +105,20 @@ export default function Game() {
     return () => window.removeEventListener("keydown", handleKeys);
   }, [guesses, currentGuess, isGameOver]);
 
+  useEffect(() => {
+    const newLength = isHardMode ? HARD_MODE_LENGTH : DEFAULT_GUESS_LENGTH;
+    setCurrentGuessLength(newLength);
+    setGuesses(Array(newLength).fill(""));
+    setGuessResults(
+      Array(newLength)
+        .fill(0)
+        .map(() => [])
+    );
+    setCurrentGuess(0);
+    setIsGameOver(false);
+    setMessage("");
+  }, [isHardMode]);
+
   function getKeyboardLetterStates() {
     const letterStates: { [key: string]: number } = {};
 
@@ -116,7 +140,7 @@ export default function Game() {
 
   return (
     <div className="flex flex-col items-center min-h-screen mb-24 gap-2">
-      <div className={`grid grid-rows-${GUESS_LENGTH} gap-1`}>
+      <div className={`grid grid-rows-${currentGuessLength} gap-1`}>
         {guesses.map((guess, index) => (
           <Guess
             key={index}
@@ -144,9 +168,9 @@ export default function Game() {
       {isGameOver && (
         <button
           onClick={() => {
-            setGuesses(Array(GUESS_LENGTH).fill(""));
+            setGuesses(Array(currentGuessLength).fill(""));
             setGuessResults(
-              Array(GUESS_LENGTH)
+              Array(currentGuessLength)
                 .fill(null)
                 .map(() => [])
             );
@@ -161,6 +185,15 @@ export default function Game() {
       )}
 
       <Keyboard letterStates={getKeyboardLetterStates()} />
+
+      <div className="flex items-center text-white space-x-2">
+        <Switch
+          checked={isHardMode}
+          onCheckedChange={setIsHardMode}
+          id="hard-mode"
+        />
+        <Label htmlFor="hard-mode">Hard Mode</Label>
+      </div>
     </div>
   );
 }
